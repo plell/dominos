@@ -1,5 +1,7 @@
 import { CatmullRomCurve3, Quaternion, Vector3 } from 'three'
-import { EARTH_DATA_PADDING, EARTH_RADIUS } from '~/transformers/earthGraph'
+
+const EARTH_DATA_PADDING = 40
+const EARTH_RADIUS = 40
 
 export const getPointBetweenPointsByPercent = (pointA: Vector3, pointB: Vector3, percentage: number) => {
   const displacement = pointB.clone().sub(pointA)
