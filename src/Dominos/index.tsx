@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CurvedLine } from "./CurvedLine";
 import { Event, MeshStandardMaterial, Object3D, Vector3 } from "three";
 import { initDominos } from "./constants";
+import { ThreeEvent } from "@react-three/fiber";
 
 const radius = 800;
 const dominoDistance = 5;
@@ -132,7 +133,7 @@ export const Dominos = ({ mouseDown }: Props) => {
     }
   }, [instancedRigidBodiesRef.current]);
 
-  const doPoints = (e: Event) => {
+  const doPoints = (e: ThreeEvent<PointerEvent>) => {
     if (mouseDown) {
       setPoints((prevPoints) => {
         const lastPoint = prevPoints[prevPoints.length - 1];
