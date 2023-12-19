@@ -5,9 +5,15 @@ import {
 } from "@react-three/rapier";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CurvedLine } from "./CurvedLine";
-import { Event, MeshStandardMaterial, Object3D, Vector3 } from "three";
+import {
+  Event,
+  InstancedMesh,
+  MeshStandardMaterial,
+  Object3D,
+  Vector3,
+} from "three";
 import { initDominos } from "./constants";
-import { ThreeEvent } from "@react-three/fiber";
+import { ThreeEvent, useFrame } from "@react-three/fiber";
 
 const radius = 800;
 const dominoDistance = 5;
@@ -57,6 +63,7 @@ type Props = {
 
 export const Dominos = ({ mouseDown }: Props) => {
   const instancedRigidBodiesRef = useRef<RapierRigidBody[] | null>(null);
+  const instancedMeshRef = useRef<InstancedMesh | null>(null);
 
   const [points, setPoints] = useState<Vector3[]>([]);
   const [loadedPoints, setLoadedPoints] = useState<Vector3[]>([]);
@@ -205,6 +212,7 @@ export const Dominos = ({ mouseDown }: Props) => {
         ref={instancedRigidBodiesRef}
       >
         <instancedMesh
+          ref={instancedMeshRef}
           material={emissiveMaterial}
           castShadow
           args={[null, null, dominoInstances.length]}
