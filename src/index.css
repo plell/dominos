@@ -6,6 +6,7 @@ html {
 
 html, body {
   overscroll-behavior: none;
+  touch-action:none;
   position:fixed;
   top:0;
   left:0;

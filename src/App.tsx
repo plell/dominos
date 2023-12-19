@@ -1,15 +1,8 @@
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 
 import { Physics } from "@react-three/rapier";
 
-import {
-  Suspense,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { Suspense, useEffect, useState } from "react";
 
 import {
   Bloom,
@@ -21,7 +14,7 @@ import { BlendFunction, Resolution } from "postprocessing";
 
 import styled from "styled-components";
 
-import { ACESFilmicToneMapping, Color, PCFSoftShadowMap } from "three";
+import { ACESFilmicToneMapping, PCFSoftShadowMap } from "three";
 
 import { Dominos } from "./Dominos";
 
@@ -47,19 +40,12 @@ const App = ({ setShowLoading }: AppProps) => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("pointerdown", handleMouseDown);
-    window.addEventListener("touchstart", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("pointerup", handleMouseUp);
-    window.addEventListener("touchend", handleMouseUp);
+
     return () => {
-      window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("pointerdown", handleMouseDown);
-      window.removeEventListener("touchstart", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
       window.removeEventListener("pointerup", handleMouseUp);
-      window.removeEventListener("touchend", handleMouseUp);
     };
   });
 

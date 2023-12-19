@@ -5,15 +5,9 @@ import {
 } from "@react-three/rapier";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CurvedLine } from "./CurvedLine";
-import {
-  Event,
-  InstancedMesh,
-  MeshStandardMaterial,
-  Object3D,
-  Vector3,
-} from "three";
+import { InstancedMesh, MeshStandardMaterial, Object3D, Vector3 } from "three";
 import { initDominos } from "./constants";
-import { ThreeEvent, useFrame } from "@react-three/fiber";
+import { ThreeEvent } from "@react-three/fiber";
 
 const radius = 800;
 const dominoDistance = 5;
