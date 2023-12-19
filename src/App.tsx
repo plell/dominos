@@ -47,7 +47,7 @@ const App = ({ setShowLoading }: AppProps) => {
       window.removeEventListener("pointerdown", handleMouseDown);
       window.removeEventListener("pointerup", handleMouseUp);
     };
-  });
+  }, []);
 
   const handleMouseDown = () => {
     if (!firstClick) {
